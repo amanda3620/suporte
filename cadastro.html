@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>TI CADASTRO</title>
+
+    <style>
+        header {
+            background-color: #6a0dad; 
+            color: white; 
+            padding: 20px 0; 
+        }
+        #suporte {
+            border: 2px solid white;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        #botao{
+            background-color: #6a0dad;
+            color: white;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgb(255, 255, 255); /* Substitua "red" pela cor desejada */
+        }
+    </style>
+</head>
+
+
+<body onload="listarUsuarios()">
+
+    <header>
+        <div class="container text-center d-grid gap-2">
+            <h6 class="container col-md-8"><hr>ADICIONAR CHAMADO<hr></h6>
+            <div class="container text-center">
+              <a href="gestao.html" class="btn btn-light col-md-7">GESTÃO DE CHAMADOS</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- <h3 class="mb-4">Cadastro de usuários</h3> -->
+                <form id="formulario" method="post" onsubmit="enviarDados(event)">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome completo:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite aqui ..." required  >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="setor" class="form-label">Setor:</label>
+                        <input type="text" name="setor" id="setor" class="form-control" placeholder="Digite o setor que trabalha..." required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">Insira o CPF:</label>
+                        <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Somente números ..." maxlength="11" required onblur="validaCPF()" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descricao" class="form-label">Descrição:</label>
+                        <textarea name="descricao" id="descricao" class="form-control" placeholder="Descrição do problema..." rows="4"  rows="4" style="resize: none;"  required ></textarea>
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="data" class="form-label">Data:</label>
+                        <input type="date" name="dataHoje" id="dataHoje" class="form-control" required />
+                    </div> -->
+
+                <button id='botao'type="submit" class="container text-center d-grid gap-2 btn btn-light mb-5 d-grid gap-2">CADASTRAR</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>

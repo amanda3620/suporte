@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTERAR USUÁRIO</title>
+    <script>
+
+        function obterNumeroDaURL() {
+            const urlParams = new URLSearchParams(window.location.search)
+            const id = urlParams.get('id')
+            return id
+        }
+        
+        window.onload = function() {
+            const id = obterNumeroDaURL()
+            if (id !== null) {
+                editarUsuario(id)
+            } else {
+                alert('Parâmetro "CPF" não encontrado na URL.')
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Alteração no cadastro de usuários da academia</h1>
+    
+    <form id="formulario" onsubmit="alterarDados(event)">
+        <label for="nome">Nome completo do usuário:</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite aqui ..." readonly /><br><br>
+        <label for="setor">Setor: </label>
+        <input type="text" name="setor" id="setor" placeholder="Digite o setor que trabalha..." readonly><br><br>
+        <label for="descricao">Descrição: </label>
+        <input type="text" name="descricao" id="descricao" placeholder="Descrição do prblema..." readonly><br><br>
+        <label for="data">Data: </label>
+        <input type="date" name="dataHoje" id="dataHoje" readonly><br><br>
+        <label for="cpf">Insira o CPF (Somente os números): </label>
+        <input type="text" name="cpf" id="cpf" placeholder="Somente números ..." maxlength="11"  readonly/><br><br>
+        <label for="comentario">Comentário: </label>
+        <input type="text" name="comentario" id="comentario" placeholder="Digite um comentário para o usuário..."><br><br>
+        <input type="hidden" id="id"/>
+    </form>
+    <br>
+    <a href="gestao.html">
+        <button type="submit">Enviar</button>
+    </a>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
